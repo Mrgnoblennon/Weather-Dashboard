@@ -5,69 +5,72 @@
     box-sizing: border-box;
   }
   
-  /* Apply styles to the header */
-  header {
-    background-color: #2910e8;
-    padding: 20px;
-  }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 10px;
-    color: white;
-  }
-  
-  #search-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-left: 20px;
-  }
+/* Apply styles to the header */
+header {
+background-color: #2910e8;
+padding: 20px;
+}
 
-  #margin {
-    height: 40px;
-    width: 200px;
-    margin-top: 10px;
-  }
-  
-  #city-input {
-    padding: 10px;
-    margin-right: 10px;
-    width: 200px;
-  }
-  
-  /* Apply styles to the main content */
-  main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  #current-weather {
-    margin-bottom: 20px;
-  }
-  
-  #forecast {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-  }
+h1 {
+text-align: center;
+margin-bottom: 10px;
+color: white;
+}
 
-  #city-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 10px;
-    margin-left: 20px;
-  }
-  
-  .city-button {
-    margin-bottom: 5px;
-    height: 40px;
-    width: 200px;
-  }
-  
-  
-  /* Add more styles to customize the weather display and forecast sections */
+#search-form {
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: flex-start;
+margin-left: 20px;
+}
+
+#margin {
+height: 40px;
+width: 200px;
+margin-top: 10px;
+background-color: #17a2d4;
+border-color: aliceblue;
+}
+
+#city-input {
+padding: 10px;
+margin-right: 10px;
+width: 200px;
+margin-top: 10px;
+}
+
+/* Apply styles to the main content */
+main {
+max-width: 800px;
+margin: 0 auto;
+padding: 20px;
+}
+
+#current-weather {
+margin-bottom: 20px;
+}
+
+#forecast {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+gap: 10px;
+}
+
+#city-buttons {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin-top: 10px;
+margin-left: 20px;
+}
+
+.city-button {
+margin-bottom: 5px;
+height: 40px;
+width: 200px;
+}
+
+
+/* Add more styles to customize the weather display and forecast sections */
   

@@ -14,13 +14,22 @@
   </header>
       
   <main>
-    <section id="current-weather">
-        <!-- add elements for displaying current weather information -->
-    </section>
+    <section id="current-weather-section">
+        <h2>Current Weather</h2>
+        <div id="current-weather">
+          <h3 id="city-name"></h3>
+          <p id="date"></p>
+          <img id="weather-icon" src="" alt="Weather Icon">
+          <p id="temperature"></p>
+          <p id="humidity"></p>
+          <p id="wind-speed"></p>
+        </div>
+      </section>
     
-    <section id="forecast">
-        <!-- add elements for displaying the 5-day forecast -->
-    </section>
+      <section id="forecast-section">
+        <h2>5-Day Forecast</h2>
+        <div id="forecast"></div>
+      </section>
   </main>
 
 
@@ -48,7 +57,7 @@
 
 </div>
   
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   <script src="script.js"></script>
 </body>
 
