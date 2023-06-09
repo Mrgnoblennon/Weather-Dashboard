@@ -47,8 +47,18 @@ margin: 0 auto;
 padding: 20px;
 }
 
+#current-weather-section {
+  border-style: solid;
+  width: 755.2px;
+  height: 157.2px;
+}
+
 #current-weather {
 margin-bottom: 20px;
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-gap: 10px;
+align-items: center;
 }
 
 #forecast {
@@ -71,6 +81,21 @@ height: 40px;
 width: 200px;
 }
 
+#weather-icon {
+  max-width: 100%;
+  height: auto;
+}
+
+.forecast-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+}
+
+.forecast-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
 
 /* Add more styles to customize the weather display and forecast sections */
   

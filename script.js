@@ -17,7 +17,7 @@ searchForm.addEventListener('submit', function(event) {
 
 function getWeatherData(city) {
   const apiKey = 'b2a4100b1f9013d9aca5c714e8917053'; // Replace with your OpenWeather API key
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
 
   // Make a fetch request to the OpenWeather API
   fetch(apiUrl)
@@ -31,6 +31,7 @@ function getWeatherData(city) {
     .then(function(data) {
       // Process the weather data and update the UI
       displayCurrentWeather(data);
+      displayForecast(data);
     })
     .catch(function(error) {
       // Handle any errors that occur during the fetch request
@@ -49,12 +50,12 @@ function displayCurrentWeather(data) {
   const windSpeed = document.getElementById('wind-speed');
 
   // Update the text content of the selected elements with the weather data
-  cityName.textContent = data.name;
+  cityName.textContent = data.city.name;
   date.textContent = moment().format('MMMM Do YYYY');
-  icon.setAttribute('src', `http://openweathermap.org/img/w/${data.weather[0].icon}.png`);
-  temperature.textContent = data.main.temp;
-  humidity.textContent = data.main.humidity;
-  windSpeed.textContent = data.wind.speed;
+  icon.setAttribute('src', `http://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png`);
+  temperature.textContent = `Temperature: ${Math.round(data.list[0].main.temp - 273.15)}°C`; // Convert Kelvin to Celsius
+  humidity.textContent = `Humidity: ${data.list[0].main.humidity}%`; // Append "%" to humidity
+  windSpeed.textContent = `Wind-Speed: ${data.list[0].wind.speed} km/h`; // Append "km/h" to wind speed
 }
 
 function displayForecast(data) {
@@ -73,17 +74,32 @@ function displayForecast(data) {
       icon.setAttribute('src', `http://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png`);
 
       const temperature = document.createElement('p');
-      temperature.textContent = data.list[i].main.temp;
+      temperature.textContent = `${Math.round(data.list[i].main.temp - 273.15)}°C`; // Convert Kelvin to Celsius
 
       const humidity = document.createElement('p');
-      humidity.textContent = data.list[i].main.humidity;
+      humidity.textContent = `${data.list[i].main.humidity}%`; // Append "%" to humidity
+
+      const windSpeed = document.createElement('p');
+      windSpeed.textContent = `${data.list[i].wind.speed} km/h`; // Append "km/h" to wind speed
 
       forecastItem.appendChild(date);
       forecastItem.appendChild(icon);
       forecastItem.appendChild(temperature);
       forecastItem.appendChild(humidity);
+      forecastItem.appendChild(windSpeed);
 
       forecastContainer.appendChild(forecastItem);
     }
   }
+}
+
+// Select the city buttons
+const cityButtons = document.getElementsByClassName('city-button');
+
+// Add event listeners to the city buttons
+for (let i = 0; i < cityButtons.length; i++) {
+  cityButtons[i].addEventListener('click', function () {
+    const cityName = cityButtons[i].textContent;
+    getWeatherData(cityName);
+  });
 }
