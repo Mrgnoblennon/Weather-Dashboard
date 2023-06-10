@@ -18,12 +18,18 @@ color: white;
 }
 
 #search-form {
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-align-items: flex-start;
-margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 20px;
+  margin-top: 20px; /* Add margin-top to push it below the header */
+  margin-bottom: 10px; /* Add margin-bottom to create space */
+  position: absolute;
+  top: 80px; /* Adjust the top value based on your header height */
 }
+
+
 
 #margin {
 height: 40px;
@@ -68,12 +74,15 @@ gap: 10px;
 }
 
 #city-buttons {
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-margin-top: 10px;
-margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 160px; /* Add margin-top to create space below the search form */
+  margin-left: 20px;
+  position: absolute;
+  top: 80px; /* Adjust the top value based on your header height */
 }
+
 
 .city-button {
 margin-bottom: 5px;

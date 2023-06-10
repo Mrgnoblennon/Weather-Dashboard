@@ -1,25 +1,28 @@
-// Select the search form element
+//select the search form element
 const searchForm = document.getElementById('search-form');
 
-// Add event listener for form submission
+//add event listener for form submission
 searchForm.addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent form submission from refreshing the page
 
-  // Get the value entered in the city input field
+  //get the value entered in the city input field
   const city = document.getElementById('city-input').value;
 
-  // Call the function to fetch weather data
+  //call the function to fetch weather data
   getWeatherData(city);
 
-  // Clear the input field
+  //clear the input field
   document.getElementById('city-input').value = '';
+
+  //add the searched city to the search history
+  addToSearchHistory(city);
 });
 
 function getWeatherData(city) {
   const apiKey = 'b2a4100b1f9013d9aca5c714e8917053'; // Replace with your OpenWeather API key
   const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
 
-  // Make a fetch request to the OpenWeather API
+  //make a fetch request to the OpenWeather API
   fetch(apiUrl)
     .then(function(response) {
       if (response.ok) {
@@ -29,19 +32,19 @@ function getWeatherData(city) {
       }
     })
     .then(function(data) {
-      // Process the weather data and update the UI
+      //process the weather data and update the UI
       displayCurrentWeather(data);
       displayForecast(data);
     })
     .catch(function(error) {
-      // Handle any errors that occur during the fetch request
+      //handle any errors that occur during the fetch request
       console.log(error);
-      // Call a function to display an error message to the user
+      //call a function to display an error message to the user
     });
 }
 
 function displayCurrentWeather(data) {
-  // Select the elements where we want to display the weather information
+  //select the elements where we want to display the weather information
   const cityName = document.getElementById('city-name');
   const date = document.getElementById('date');
   const icon = document.getElementById('weather-icon');
@@ -49,7 +52,7 @@ function displayCurrentWeather(data) {
   const humidity = document.getElementById('humidity');
   const windSpeed = document.getElementById('wind-speed');
 
-  // Update the text content of the selected elements with the weather data
+  //update the text content of the selected elements with the weather data
   cityName.textContent = data.city.name;
   date.textContent = moment().format('MMMM Do YYYY');
   icon.setAttribute('src', `http://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png`);
@@ -93,13 +96,39 @@ function displayForecast(data) {
   }
 }
 
-// Select the city buttons
+//select the city buttons
 const cityButtons = document.getElementsByClassName('city-button');
 
-// Add event listeners to the city buttons
+//add event listeners to the city buttons
 for (let i = 0; i < cityButtons.length; i++) {
   cityButtons[i].addEventListener('click', function () {
     const cityName = cityButtons[i].textContent;
     getWeatherData(cityName);
   });
+}
+
+//call the function to fetch Perth's weather on startup
+getWeatherData('Perth');
+
+//function to add a city to the search history
+function addToSearchHistory(city) {
+  //retrieve the existing search history from local storage
+  const searchHistory = getSearchHistoryFromLocalStorage();
+
+  //add the new city to the search history
+  searchHistory.push(city);
+
+  //save the updated search history to local storage
+  saveSearchHistoryToLocalStorage(searchHistory);
+}
+
+//function to retri eve search history from local storage
+function getSearchHistoryFromLocalStorage() {
+  const searchHistory = localStorage.getItem('searchHistory');
+  return searchHistory ? JSON.parse(searchHistory) : [];
+}
+
+//function to save search history to local storage
+function saveSearchHistoryToLocalStorage(searchHistory) {
+  localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
 }
