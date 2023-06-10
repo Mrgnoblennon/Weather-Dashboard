@@ -53,7 +53,7 @@ main {
 
 #current-weather-section {
   border-style: solid;
-  border-color: black;
+  border-color: rgb(158, 158, 158);
 }
 
 #current-weather {

@@ -56,9 +56,9 @@ function displayCurrentWeather(data) {
   cityName.textContent = data.city.name;
   date.textContent = moment().format('MMMM Do YYYY');
   icon.setAttribute('src', `http://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png`);
-  temperature.textContent = `Temperature: ${Math.round(data.list[0].main.temp - 273.15)}°C`; // Convert Kelvin to Celsius
-  humidity.textContent = `Humidity: ${data.list[0].main.humidity}%`; // Append "%" to humidity
-  windSpeed.textContent = `Wind-Speed: ${data.list[0].wind.speed} km/h`; // Append "km/h" to wind speed
+  temperature.textContent = `Temperature: ${Math.round(data.list[0].main.temp - 273.15)}°C`;
+  humidity.textContent = `Humidity: ${data.list[0].main.humidity}%`;
+  windSpeed.textContent = `Wind-Speed: ${data.list[0].wind.speed} km/h`;
 }
 
 function displayForecast(data) {
@@ -77,13 +77,13 @@ function displayForecast(data) {
       icon.setAttribute('src', `http://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png`);
 
       const temperature = document.createElement('p');
-      temperature.textContent = `${Math.round(data.list[i].main.temp - 273.15)}°C`; // Convert Kelvin to Celsius
+      temperature.textContent = `Temp: ${Math.round(data.list[i].main.temp - 273.15)}°C`; // Convert Kelvin to Celsius
 
       const humidity = document.createElement('p');
-      humidity.textContent = `${data.list[i].main.humidity}%`; // Append "%" to humidity
+      humidity.textContent = `Humidity: ${data.list[i].main.humidity}%`; // Append "%" to humidity
 
       const windSpeed = document.createElement('p');
-      windSpeed.textContent = `${data.list[i].wind.speed} km/h`; // Append "km/h" to wind speed
+      windSpeed.textContent = `Wind: ${data.list[i].wind.speed} km/h`; // Append "km/h" to wind speed
 
       forecastItem.appendChild(date);
       forecastItem.appendChild(icon);
