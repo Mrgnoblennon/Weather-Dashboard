@@ -1,20 +1,20 @@
 /* Reset default browser styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Apply styles to the header */
 header {
-background-color: #2910e8;
-padding: 20px;
+  background-color: #2910e8;
+  padding: 20px;
 }
 
 h1 {
-text-align: center;
-margin-bottom: 10px;
-color: white;
+  text-align: center;
+  margin-bottom: 10px;
+  color: white;
 }
 
 #search-form {
@@ -23,71 +23,71 @@ color: white;
   justify-content: flex-start;
   align-items: flex-start;
   margin-left: 20px;
-  margin-top: 20px; /* Add margin-top to push it below the header */
-  margin-bottom: 10px; /* Add margin-bottom to create space */
+  margin-top: 20px;
+  margin-bottom: 10px;
   position: absolute;
-  top: 80px; /* Adjust the top value based on your header height */
+  top: 80px;
 }
 
-
-
 #margin {
-height: 40px;
-width: 200px;
-margin-top: 10px;
-background-color: #17a2d4;
-border-color: aliceblue;
+  height: 40px;
+  width: 200px;
+  margin-top: 10px;
+  background-color: #17a2d4;
+  border-color: aliceblue;
 }
 
 #city-input {
-padding: 10px;
-margin-right: 10px;
-width: 200px;
-margin-top: 10px;
+  padding: 10px;
+  margin-right: 10px;
+  width: 200px;
+  margin-top: 10px;
 }
 
 /* Apply styles to the main content */
 main {
-max-width: 800px;
-margin: 0 auto;
-padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 #current-weather-section {
   border-style: solid;
-  width: 755.2px;
-  height: 157.2px;
+  border-color: black;
 }
 
 #current-weather {
-margin-bottom: 20px;
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-grid-gap: 10px;
-align-items: center;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  align-items: center;
 }
 
 #forecast {
-display: grid;
-grid-template-columns: repeat(5, 1fr);
-gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+#forecast-section {
+  margin-top: 30px;
 }
 
 #city-buttons {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 160px; /* Add margin-top to create space below the search form */
+  margin-top: 160px;
   margin-left: 20px;
   position: absolute;
-  top: 80px; /* Adjust the top value based on your header height */
+  top: 80px;
 }
 
-
 .city-button {
-margin-bottom: 5px;
-height: 40px;
-width: 200px;
+  margin-bottom: 5px;
+  height: 40px;
+  width: 200px;
 }
 
 #weather-icon {
@@ -105,6 +105,3 @@ width: 200px;
   border: 1px solid #ccc;
   padding: 10px;
 }
-
-/* Add more styles to customize the weather display and forecast sections */
-  
