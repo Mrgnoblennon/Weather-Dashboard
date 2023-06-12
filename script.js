@@ -132,3 +132,32 @@ function getSearchHistoryFromLocalStorage() {
 function saveSearchHistoryToLocalStorage(searchHistory) {
   localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
 }
+
+//new code
+
+//get the search history from local storage
+const searchHistory = getSearchHistoryFromLocalStorage();
+
+//set the placeholder text to the last searched city
+const lastSearchedCity = searchHistory[searchHistory.length - 1];
+document.getElementById('city-input').placeholder = lastSearchedCity ? lastSearchedCity : 'Enter a city';
+
+
+//function to add a city to the search history
+function addToSearchHistory(city) {
+  //retrieve the existing search history from local storage
+  const searchHistory = getSearchHistoryFromLocalStorage();
+  
+  //add the new city to the search history
+  searchHistory.push(city);
+  
+  //save the updated search history to local storage
+  saveSearchHistoryToLocalStorage(searchHistory);
+  
+  //update the placeholder text to the newly searched city
+  const capitalizedCity = city.charAt(0).toUpperCase() + city.slice(1);
+  document.getElementById('city-input').placeholder = capitalizedCity;
+}
+
+
+
