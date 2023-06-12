@@ -159,5 +159,15 @@ function addToSearchHistory(city) {
   document.getElementById('city-input').placeholder = capitalizedCity;
 }
 
-
-
+//add event listeners to the city buttons
+for (let i = 0; i < cityButtons.length; i++) {
+  cityButtons[i].addEventListener('click', function () {
+    const cityName = cityButtons[i].textContent;
+    
+    //set the placeholder text of the input field to the clicked city
+    document.getElementById('city-input').placeholder = cityName;
+    
+    //fetch weather data for the clicked city
+    getWeatherData(cityName);
+  });
+}
